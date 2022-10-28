@@ -1,56 +1,36 @@
 package br.com.jonas;
 
+import br.com.jonas.menu.Menu;
 import br.com.jonas.util.CircularDoublyLinkedList;
+import br.com.jonas.util.Queue;
+import br.com.jonas.util.Stack;
 
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         CircularDoublyLinkedList list = new CircularDoublyLinkedList();
+        Stack stack = new Stack();
+        Queue queue = new Queue();
+        Menu menu = new Menu();
         Scanner sc = new Scanner(System.in);
         boolean inicio = true;
-        System.out.println("-=-=-=-=- Lista Ligada -=-=-=-=-");
+        System.out.println("-=-=-=-=- Estrutura de Dados -=-=-=-=-");
         do {
             System.out.println("Qual estrura de dados deseja usar? ");
-            int option = sc.nextInt();
-
-            System.out.println("(1) adicionar no inicio");
-            System.out.println("(2) adicionar no fim");
-            System.out.println("(3) mostrar do inicio");
-            System.out.println("(4) mostrar do final");
-            System.out.println("(5) inserir no meio");
-            System.out.println("(6) remover no inicio");
-            System.out.println("(7) remover no final");
-            System.out.println("(8) remover no meio");
-
-
-            int opcao = sc.nextInt();
-            if(opcao == 1) {
-                System.out.println("Digie um inteiro:");
-                int valor = sc.nextInt();
-                list.addAtBeginning(valor);
-            }else if(opcao == 2) {
-                System.out.println("Digite um inteiro: ");
-                int valor = sc.nextInt();
-                list.addAtEnd(valor);
-            }else if(opcao == 3){
-                list.showFromTheBeginning();
-            }else if(opcao == 4) {
-                list.showFromTheEnd();
-            }else if(opcao == 5) {
-                System.out.println("digie o valor que deseja inserir");
-                int valor = sc.nextInt();
-                list.addInTheCenter(valor);
-            }else if(opcao == 6) {
-                list.deleteFromTheBeginning();
-            }else if(opcao == 7) {
-                list.deleteFromTheEnd();
-            }else if(opcao == 8) {
-                System.out.println("digie o valor que deseja excluir:");
-                int valor = sc.nextInt();
-                list.deleteInTheCenter(valor);
-            }else if(opcao == 9) {
-                System.out.println("ADEUS!");
+            System.out.println("(1) Lista Circular duplamente ligada ");
+            System.out.println("(2) Pilha ");
+            System.out.println("(3) Fila ");
+            System.out.println("(4) Sair ");
+            int structure = sc.nextInt();
+            if(structure == 1){
+                menu.menuLinkedList(list);
+            }else if(structure == 2){
+                menu.menuStack(stack);
+            }else if(structure == 3){
+                menu.menuQueue(queue);
+            }else if(structure == 4){
+                System.out.println("Adeus!");
                 inicio = false;
             }
         }while(inicio);

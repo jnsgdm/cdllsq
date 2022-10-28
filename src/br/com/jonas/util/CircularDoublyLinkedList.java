@@ -33,8 +33,8 @@ public class CircularDoublyLinkedList {
         this.end = end;
     }
 
-    public void addAtBeginning(int valor) {
-        Node novo = new Node(valor);
+    public void addAtBeginning(int value) {
+        Node novo = new Node(value);
         if (start == null) {
             novo.setPrev(novo);
             novo.setNext(novo);
@@ -49,8 +49,8 @@ public class CircularDoublyLinkedList {
         length++;
     }
 
-    public void addAtEnd(int valor) {
-        Node novo = new Node(valor);
+    public void addAtEnd(int value) {
+        Node novo = new Node(value);
         if (start == null) {
             start = novo;
             novo.setNext(novo);
@@ -105,7 +105,7 @@ public class CircularDoublyLinkedList {
         }
     }
 
-    public void addInTheCenter(int valor) {
+    public void addInTheCenter(int value) {
         if (start == end) {
             System.out.println("A lista possui apenas 1 elemento!");
         } else {
@@ -115,7 +115,7 @@ public class CircularDoublyLinkedList {
 
             int position = sc.nextInt();
             temp = start;
-            Node novo = new Node(valor);
+            Node novo = new Node(value);
             while (temp.getInfo() != position) {
                 if (temp == end) {
                     System.out.println("Não existe nenhum elemento com esse valor!");
@@ -184,18 +184,18 @@ public class CircularDoublyLinkedList {
         }
     }
 
-    public void deleteInTheCenter(int valor) {
-        if (start.getInfo() == valor) {
+    public void deleteInTheCenter(int value) {
+        if (start.getInfo() == value) {
             start = start.getNext();
             end.setNext(start);
             start.setPrev(end);
-        } else if(end.getInfo() == valor){
+        } else if(end.getInfo() == value){
             end = end.getPrev();
             end.setNext(start);
             start.setPrev(end);
         } else {
             temp = start;
-            while (temp.getInfo() != valor) {
+            while (temp.getInfo() != value) {
                 if (temp == end) {
                     System.out.println("Não existe nenhum elemento com esse valor!");
                     return;
